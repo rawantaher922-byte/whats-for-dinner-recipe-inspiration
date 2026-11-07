@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What's For Dinner</title>
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <!----------------------------------------------------- navbar---------------------------------------------------------->
+    <nav class="navbar bg-white border-bottom py-3">
+        <div class="container px-3 px-lg-4">
+            <a class="navbar-brand d-flex align-items-center gap-3" href="#">
+                <div class="logo text-white rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+
+                <div>
+                    <h4 class="mb-0 fw-bold"> What's For Dinner</h4>
+                    <small class="text-secondary fs-6">
+                        Your daily meal inspiration
+                    </small>
+                </div>
+            </a>
+            <div class="icons d-none d-lg-flex align-items-center gap-3">
+                <a href="#" class="text-secondary">
+                    <i class="fa-solid fa-bookmark"></i>
+                </a>
+
+                <a href="#" class="text-secondary">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                </a>
+
+                <a href="#" class="text-secondary">
+                    <i class="fa-solid fa-gear"></i>
+                </a>
+                <a href="#" class="logo-img">
+                    <img src="images/avatar-4.jpg" alt="avatar" width="40" height="40" class="rounded-circle">
+                </a>
+
+            </div>
+            <button class="navbar-toggler d-lg-none border-0" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mobileMenu" aria-controls="mobileMenu" aria-expanded="false"
+                aria-label="Toggle navigation">
+
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="collapse d-lg-none position-absolute top-100 w-100 bg-white" id="mobileMenu" style="z-index: 1000;">
+            <div class="container px-3 px-lg-4">
+                <div class="py-3 mobile-toggle">
+                    <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-secondary py-2">
+                        <i class="fa-solid fa-bookmark"></i>
+                        <span>Saved Recipes</span>
+                    </a>
+                    <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-secondary py-2">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>History</span>
+                    </a>
+                    <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-secondary py-2">
+                        <i class="fa-solid fa-gear"></i>
+                        <span>Settings</span>
+                    </a>
+                    <a href="#" class="d-flex align-items-center gap-3 text-decoration-none text-secondary py-2">
+                        <img src="images/avatar-4.jpg" alt="avatar" width="32" height="32" class="rounded-circle">
+                        <span>Profile</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!------------------------------------------------- body------------------------------------------------------------>
+    <main class="container my-5">
+        <div class="row bg-white rounded-4 shadow overflow-hidden">
+            <div class="col-lg-5 p-0 position-relative">
+                <img id="mealImage" src="" alt="meal " class="img-fluid w-100 h-100 object-fit-cover"
+                    style="min-height: 650px;">
+
+                <div class="position-absolute top-0 start-0 m-4">
+                    <div class="bg-white rounded-pill px-3 py-2 shadow">
+                        <i class="fa-solid fa-star text-warning"></i>
+                        <span id="rating" class="fw-bold"></span>
+                        <span id="reviews" class="text-secondary"></span>
+                    </div>
+                </div>
+                <div class="position-absolute bottom-0 start-50 translate-middle-x w-75 mb-4">
+                    <div class="bg-white rounded-4 shadow p-3">
+                        <div class="row text-center">
+                            <div class="col-4">
+                                <i class="fa-solid fa-clock"></i>
+                                <p class="small text-secondary mb-1"> Prep Time </p>
+                                <strong id="prepTime"></strong>
+                            </div>
+                            <div class="col-4">
+                                <i class="fa-solid fa-fire-burner text-danger"></i>
+                                <p class="small text-secondary mb-1"> Cook Time</p>
+                                <strong id="cookTime"></strong>
+                            </div>
+                            <div class="col-4">
+                                <i class="fa-solid fa-users text-primary"></i>
+
+                                <p class="small text-secondary mb-1">
+                                    Servings
+                                </p>
+
+                                <strong id="servings"></strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-7 p-4 p-lg-5">
+                <div class="mb-3">
+                    <span id="difficulty" class="badge bg-success-subtle text-success rounded-pill px-3 py-2"> </span>
+                    <span id="cuisine" class="badge bg-primary-subtle text-primary rounded-pill px-3 py-2 ms-2"></span>
+
+                </div>
+
+                <div class="d-flex justify-content-between align-items-start">
+                    <div>
+                        <h1 id="mealName" class="fw-bold"></h1>
+                        <p id="mealDescription" class="text-secondary"></p>
+                    </div>
+
+                    <div class="d-flex gap-2 icons-body ">
+                        <button class="btn">
+                            <i class="fa-solid fa-bookmark"></i>
+                        </button>
+                        <button class="btn">
+                            <i class="fa-solid fa-share-nodes"></i>
+                        </button>
+                    </div>
+                </div>
+
+            
+                <div id="prepAlert" class=" preparation-alert alert-danger d-flex align-items-start mt-4 mb-4 d-none" role="alert">
+                    <i class="fa-solid fa-triangle-exclamation fs-4 me-3 mt-1"></i>
+                    <div>
+                        <h5 class="mb-1 fw-bold">
+                            Extended Preparation Time
+                        </h5>
+
+                        <p class="mb-0">
+                            This recipe requires more than 45 minutes to prepare. Plan accordingly!
+                        </p>
+                    </div>
+                </div>
+
+                <nav class="mt-4">
+                    <div class="nav nav-underline" id="nav-tab" role="tablist">
+                        <button class="nav-link active" id="nav-ingredients-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-ingredients" type="button" role="tab" aria-controls="nav-ingredients"
+                            aria-selected="true">
+                            <i class="fa-solid fa-list me-2"></i> Ingredients
+                        </button>
+                        <button class="nav-link" id="nav-instructions-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-instructions" type="button" role="tab" aria-controls="nav-instructions"
+                            aria-selected="false">
+                            <i class="fa-solid fa-book-open me-2"></i>
+                            Instructions
+                        </button>
+
+
+                        <button class="nav-link" id="nav-nutrition-tab" data-bs-toggle="tab"
+                            data-bs-target="#nav-nutrition" type="button" role="tab" aria-controls="nav-nutrition"
+                            aria-selected="false">
+
+                            <i class="fa-solid fa-chart-pie me-2"></i>
+                            Nutrition
+                        </button>
+
+                        <button class="nav-link" id="nav-tips-tab" data-bs-toggle="tab" data-bs-target="#nav-tips"
+                            type="button" role="tab" aria-controls="nav-tips" aria-selected="false">
+                            <i class="fa-solid fa-lightbulb me-2"></i>
+                            Chef's Tips
+                        </button>
+                    </div>
+                </nav>
+
+                <div class="tab-content pt-4" id="nav-tabContent">
+                    <div class="tab-pane fade show active" id="nav-ingredients" role="tabpanel"
+                        aria-labelledby="nav-ingredients-tab" tabindex="0">
+
+                        <div id="ingredients">
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane fade" id="nav-instructions" role="tabpanel"
+                        aria-labelledby="nav-instructions-tab" tabindex="0">
+                        <div id="instructions">
+                        </div>
+                    </div>
+
+
+                    <div class="tab-pane fade" id="nav-nutrition" role="tabpanel" aria-labelledby="nav-nutrition-tab"
+                        tabindex="0">
+
+                        <div id="nutrition">
+                        </div>
+                    </div>
+
+                    <div class="tab-pane fade" id="nav-tips" role="tabpanel" aria-labelledby="nav-tips-tab"
+                        tabindex="0">
+                        <div id="tips">
+                        </div>
+                    </div>
+                </div>
+
+                <button id="anotherRecipe" class="btn btn-recipe px-4 py-3 rounded-3 mt-4">
+                    <i class="fa-solid fa-rotate me-2 text-white"></i>
+                    Try Another Recipe
+                </button>
+            </div>
+        </div>
+    </main>
+
+
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+
+</html>
